@@ -126,7 +126,7 @@ def user_pays(call):
     ch_data = channels_col.find_one({"channel_id": int(ch_id)})
     price = ch_data['plans'][mins]
     
-    qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa={UPI_ID}%26am={price}%26cu=INR"
+    qr_url = f"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaeTR5GscZzllfqkFS4IKgies9GgU_FODp4mBY20wyV4mBpjTY5iuIQscYJKt7Cd3fTt8B4UvSRESInASIwcXUXU7awWvRmsdmw7hWjdKFfwEtRQ803mqhmjdp3gQGgRGml1JuymJaPOIeT6E16E4Ynr9chV282XXHsxPl4szAllv5VsyBGYsFN9GumTKA/s1600/4013.jpg"
     
     markup = InlineKeyboardMarkup()
     markup.add(InlineKeyboardButton("✅ I Have Paid", callback_data=f"paid_{ch_id}_{mins}"))

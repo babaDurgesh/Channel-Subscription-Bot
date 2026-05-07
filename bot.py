@@ -20,11 +20,11 @@ def keep_alive():
     Thread(target=run_web).start()
 
 # --- CONFIGURATION (Environment Variables) ---
-BOT_TOKEN = os.getenv('BOT_TOKEN')
-MONGO_URI = os.getenv('MONGO_URI')
-ADMIN_ID = int(os.getenv('ADMIN_ID'))
-UPI_ID = os.getenv('UPI_ID')
-CONTACT_USERNAME = os.getenv('CONTACT_USERNAME')
+BOT_TOKEN = os.getenv('8359223663:AAE0l5W_B5RP_lB8n-heDKEBNKHsbiWjvAs')
+MONGO_URI = os.getenv('mongodb+srv://Newpaymentsystem:Bt8ORL0eECtlShZE@cluster0.v1ipgab.mongodb.net/?appName=Cluster0')
+ADMIN_ID = int(os.getenv('1902165820'))
+UPI_ID = os.getenv('Q655883989@YBL')
+CONTACT_USERNAME = os.getenv('Contactlx_bot')
 
 bot = telebot.TeleBot(BOT_TOKEN)
 client = MongoClient(MONGO_URI)

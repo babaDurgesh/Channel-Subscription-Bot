@@ -20,11 +20,11 @@ def keep_alive():
     Thread(target=run_web).start()
 
 # --- CONFIGURATION (Environment Variables) ---
-BOT_TOKEN = os.getenv('8359223663:AAE0l5W_B5RP_lB8n-heDKEBNKHsbiWjvAs')
-MONGO_URI = os.getenv('mongodb+srv://Newpaymentsystem:Bt8ORL0eECtlShZE@cluster0.v1ipgab.mongodb.net/?appName=Cluster0')
-ADMIN_ID = int(os.getenv('1902165820'))
-UPI_ID = os.getenv('Q655883989@YBL')
-CONTACT_USERNAME = os.getenv('Contactlx_bot')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+MONGO_URI = os.getenv('MONGO_URI')
+ADMIN_ID = int(os.getenv('ADMIN_ID'))
+UPI_ID = os.getenv('UPI_ID')
+CONTACT_USERNAME = os.getenv('CONTACT_USERNAME')
 
 bot = telebot.TeleBot(BOT_TOKEN)
 client = MongoClient(MONGO_URI)
@@ -126,7 +126,7 @@ def user_pays(call):
     ch_data = channels_col.find_one({"channel_id": int(ch_id)})
     price = ch_data['plans'][mins]
     
-    qr_url = f"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaeTR5GscZzllfqkFS4IKgies9GgU_FODp4mBY20wyV4mBpjTY5iuIQscYJKt7Cd3fTt8B4UvSRESInASIwcXUXU7awWvRmsdmw7hWjdKFfwEtRQ803mqhmjdp3gQGgRGml1JuymJaPOIeT6E16E4Ynr9chV282XXHsxPl4szAllv5VsyBGYsFN9GumTKA/s1600/4013.jpg"
+    qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa={UPI_ID}%26am={price}%26cu=INR"
     
     markup = InlineKeyboardMarkup()
     markup.add(InlineKeyboardButton("✅ I Have Paid", callback_data=f"paid_{ch_id}_{mins}"))
